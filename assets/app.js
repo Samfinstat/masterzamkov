@@ -92,7 +92,7 @@ if ('IntersectionObserver' in window) {
       document.querySelectorAll('.nav a').forEach(a => a.classList.toggle('active', a.hash === `#${entry.target.id}`));
     }
   }, { rootMargin:'-15% 0px -65% 0px', threshold:0 });
-  document.querySelectorAll('.nav a').forEach(a => { const section = document.querySelector(a.hash); if (section) observer.observe(section); });
+  document.querySelectorAll('.nav a').forEach(a => { const section = a.hash ? document.querySelector(a.hash) : null; if (section) observer.observe(section); });
 }
 
 updateCities();
